@@ -598,6 +598,30 @@ aria-label="Search games">
 
 <h2>AVAILABLE GAMES</h2>
 
+
+<div class="nexus-search" style="margin:20px auto; max-width:600px; padding:0 15px;">
+  <input
+    id="gameSearch"
+    type="text"
+    placeholder="🔎 Search PROJECT NEXUS games..."
+    oninput="searchGames()"
+    style="width:100%; padding:16px; border-radius:12px; border:2px solid #55eaff; background:#10172b; color:white; font-size:16px;"
+  >
+</div>
+
+<script>
+function searchGames() {
+  const search = document.getElementById("gameSearch").value.toLowerCase();
+  const games = document.querySelectorAll(".games .game");
+
+  games.forEach(game => {
+    game.style.display = game.innerText.toLowerCase().includes(search)
+      ? ""
+      : "none";
+  });
+}
+</script>
+
 <div class="games" id="games"></div>
 
 </section>
